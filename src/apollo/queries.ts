@@ -14,9 +14,9 @@ export const CREATE_GAME = gql`
   }
 `
 
-export const ON_PUT_UNIT = gql`
-  subscription onPutUnit($code: String!) {
-    onPutUnit(code: $code) {
+export const ON_CHANGE_ROOM = gql`
+  subscription onChangeRoom($code: String!) {
+    onChangeRoom(code: $code) {
       p1
       p2
       board {
@@ -62,5 +62,17 @@ export const GET_ROOM = gql`
       winner
       turn
     }
+  }
+`
+
+export const JOIN_GAME = gql`
+  mutation joinGame($userName: String!, $code: String!) {
+    joinGame(userName: $userName, code: $code)
+  }
+`
+
+export const START_GAME = gql`
+  mutation startGame($code: String!) {
+    startGame(code: $code)
   }
 `

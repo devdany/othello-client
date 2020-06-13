@@ -5,6 +5,8 @@ import styled from 'styled-components'
 type Props = {
   board: LocationType[][]
   code: string
+  isMyTurn: boolean
+  userPosition: number
 }
 
 type LocationType = {
@@ -21,7 +23,7 @@ function BoardComponent(props: Props) {
             <Row>
               {row.map((location) => {
                 return (
-                  <Location x={location.x} y={location.y} unit={location.unit} code={props.code}/>
+                  <Location userPosition={props.userPosition} isMyTurn={props.isMyTurn} x={location.x} y={location.y} unit={location.unit} code={props.code}/>
                 )
               })}
             </Row>
