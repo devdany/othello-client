@@ -25,3 +25,13 @@ jobs:
 
       - name: Build              # Step 이름
         run: npm run build             # Run을 통한 스크립트 실행: Hello 출력
+      
+      - name: Deploy
+        env:
+          AWS_ACCESS_KEY_ID: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          AWS_SECRET_ACCESS_KEY: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+        run: |
+          aws s3 cp \
+            --recursive \
+            --region ap-northeast-2 \
+            build s3://othello-react 
