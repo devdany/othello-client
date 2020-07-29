@@ -8,7 +8,6 @@ function App() {
       <ApolloProvider client={client}>
         <Routes />
       </ApolloProvider>
-      
     </div>
   )
 }
